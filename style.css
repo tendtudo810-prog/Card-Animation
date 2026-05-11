@@ -1,0 +1,149 @@
+* {
+    background-color: rgb(4, 8, 46);
+    color: white;
+     font-family: "Roboto", sans-serif;
+}
+
+.caixa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    padding: 100px;
+    align-items: center;
+    width: 50%;
+    border-radius: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    border: 5px solid rgb(17, 17, 121);
+}
+
+.card::before,
+.card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card::before {
+    background:
+        linear-gradient(90deg, transparent 0%, rgba(0, 130, 255, 0.9) 50%, transparent 100%) top / 200% 4px no-repeat,
+        linear-gradient(90deg, transparent 0%, rgba(0, 130, 255, 0.9) 50%, transparent 100%) bottom / 200% 4px no-repeat;
+    background-position: -100% 0, 200% 100%;
+    animation: horizontalMove 3s linear infinite;
+}
+
+.card::after {
+    background:
+        linear-gradient(180deg, transparent 0%, rgba(0, 130, 255, 0.9) 50%, transparent 100%) left / 4px 200% no-repeat,
+        linear-gradient(180deg, transparent 0%, rgba(0, 130, 255, 0.9) 50%, transparent 100%) right / 4px 200% no-repeat;
+    background-position: 0 -100%, 100% 200%;
+    animation: verticalMove 3s linear infinite;
+}
+
+.card:hover::before,
+.card:hover::after {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: 0.8s;
+    border: none;
+}
+
+@keyframes horizontalMove {
+    0% {
+        background-position: -100% 0, 200% 100%;
+    }
+    50% {
+        background-position: 200% 0, -100% 100%;
+    }
+    100% {
+        background-position: -100% 0, 200% 100%;
+    }
+}
+
+@keyframes verticalMove {
+    0% {
+        background-position: 0 -100%, 100% 200%;
+    }
+    50% {
+        background-position: 0 200%, 100% -100%;
+    }
+    100% {
+        background-position: 0 -100%, 100% 200%;
+    }
+}
+
+.card-header {
+    font-size: 25px;
+    margin-top: -9vh;
+    margin-left: -2vw;
+    position: absolute;
+}
+
+.text {
+    margin-left: -1.5vw;
+}
+
+.card-footer {
+    margin-top: 3vh;
+    margin-left: -2vw;
+    position: absolute;
+    transition: 0.7s;
+}
+
+.botao {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.7s;
+    border: 2px solid white;
+}
+
+.botao:hover {
+    background-color: transparent;
+    color: white;
+    transition: 0.7s;
+}
+
+.botao i {
+    background-color: transparent;
+    color: white;
+    transition: color 0.7s ease;
+}
+
+.botao:hover i {
+    color: rgb(4, 8, 46);
+    background-color: transparent;
+    transition: color 0.7s ease;
+}
+
+.card-footer:hover {
+    transition: 0.7s;
+    transform: scale(1.2);
+    animation: ani 2.5s linear infinite;
+}
+
+@keyframes borderTop {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes borderBottom {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
