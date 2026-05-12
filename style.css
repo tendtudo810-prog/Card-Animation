@@ -116,8 +116,10 @@
 
 .botao:hover {
     background-color: transparent;
-    color: white;
+    color: black;
     transition: 0.7s;
+    background-color: white;
+    border: 2px solid white;
 }
 
 .botao i {
